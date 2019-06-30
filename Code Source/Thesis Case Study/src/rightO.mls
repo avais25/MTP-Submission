@@ -1,0 +1,9 @@
+node rightO(rf : int; rb : int) returns (rightBlocked : int)
+var v : bool; v_1 : bool; v_2 : bool;
+let
+  rightBlocked = if v_2 then 0 else 1;
+  v_2 = (v & v_1);
+  v_1 = (rb > 100);
+  v = (rf > 150)
+tel
+

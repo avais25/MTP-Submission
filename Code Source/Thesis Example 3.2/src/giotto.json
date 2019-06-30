@@ -1,0 +1,44 @@
+{
+    "sensor" : [
+        {"name" : "s1" , "type" : "float"}
+    ],
+
+    "actuator" : [
+        {"name" : "a" , "type" : "float" , "init" : "0"}
+    ],
+    
+    "input" : [
+            {"name" : "i1" , "type" : "float"},
+            {"name" : "i2" , "type" : "float"}
+    ],
+
+    "output" : [
+        {"name" : "o1", "type" : "float" , "init": "0"},
+        {"name" : "o2", "type" : "float" , "init": "0"}
+    ],
+
+    "private" : [
+        {"name" : "p1", "type" : "float" , "init": "0"},
+        {"name" : "p2", "type" : "float" , "init": "0"}
+    ],
+
+    "task" : [
+        {"name" : "t1", "input" : ["i1"] , "output": ["o1"], "private":["p1"], "function":"f1", "wcet":"0.25" },
+        {"name" : "t2", "input" : ["i2"] , "output": ["o2"], "private":["p2"], "function":"f2", "wcet":"1" }
+    ],
+
+    "driver" : [
+        {"name" : "input_t1", "input" : ["o2"] , "output": ["i1"], "function":"h1", "wcet":"0.25"  },
+        {"name" : "input_t2", "input" : ["s1"] , "output": ["i2"], "function":"h2", "wcet":"0.5"  },
+        {"name" : "actuation", "input" : ["o1"] , "output": ["a"], "function":"h4", "wcet":"1"  }            
+    ],
+
+    "mode" : [
+        {"name" : "m1", "period" : "12" , "ports": ["o1","o2"], "definition":[
+            {"type": "task", "frequency": "2", "task": "t1", "driver": "input_t1"},
+            {"type": "sensor", "frequency": "3", "task": "t2", "driver": "input_t2"},
+            {"type": "actuator", "frequency": "2", "driver": "actuation"}
+        ]}
+        ],
+    "jitter" : "1"
+}

@@ -1,0 +1,5 @@
+node rightO(rf,rb : int) returns (rightBlocked : int);
+let
+
+      rightBlocked = if (rf > 150 and rb > 100) then 0 else 1;
+tel

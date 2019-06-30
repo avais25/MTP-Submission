@@ -1,0 +1,12 @@
+input_t1_0
+input_t1_1
+t1_0
+t1_1
+input_t2_0
+input_t2_1
+input_t2_2
+t2_0
+t2_1
+t2_2
+actuation_0
+actuation_1

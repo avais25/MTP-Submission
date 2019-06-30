@@ -1,0 +1,194 @@
+actuation_0 >= 5.0
+actuation_0 + 1.0 <= 6.0
+actuation_1 >= 11.0
+actuation_1 + 1.0 <= 12.0
+
+input_t2_0 >= 0.0
+input_t2_0 + 0.5 <= 1.0
+input_t2_1 >= 4.0
+input_t2_1 + 0.5 <= 5.0
+input_t2_2 >= 8.0
+input_t2_2 + 0.5 <= 9.0
+
+input_t1_0 + 0.25 <= t1_0
+t1_0 + 0.25 <= input_t1_1
+input_t1_1 + 0.25 <= t1_1
+input_t2_0 + 0.5 <= t2_0
+t2_0 + 1.0 <= input_t2_1
+input_t2_1 + 0.5 <= t2_1
+t2_1 + 1.0 <= input_t2_2
+input_t2_2 + 0.5 <= t2_2
+
+t1_0 < t1_1
+input_t1_0 < input_t1_1
+t2_0 < t2_1
+input_t2_0 < input_t2_1
+t2_1 < t2_2
+input_t2_1 < input_t2_2
+actuation_0 < actuation_1
+
+t1_0 + 0.25 <= actuation_0
+t1_1 >= actuation_0 + 1.0
+t1_1 + 0.25 <= actuation_1
+
+t2_0 + 1.0 <= input_t1_1
+t2_1 >= input_t1_1 + 0.25
+input_t1_0 + 0.25 <= t2_0
+
+Or(input_t1_0 + 0.25 <= input_t1_1 , input_t1_1 + 0.25 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= t1_0 , t1_0 + 0.25 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= t1_1 , t1_1 + 0.25 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= input_t2_0 , input_t2_0 + 0.5 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= input_t2_1 , input_t2_1 + 0.5 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= input_t2_2 , input_t2_2 + 0.5 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= t2_0 , t2_0 + 1 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= t2_1 , t2_1 + 1 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= t2_2 , t2_2 + 1 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= actuation_0 , actuation_0 + 1 <= input_t1_0)
+Or(input_t1_0 + 0.25 <= actuation_1 , actuation_1 + 1 <= input_t1_0)
+Or(input_t1_1 + 0.25 <= input_t1_0 , input_t1_0 + 0.25 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= t1_0 , t1_0 + 0.25 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= t1_1 , t1_1 + 0.25 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= input_t2_0 , input_t2_0 + 0.5 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= input_t2_1 , input_t2_1 + 0.5 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= input_t2_2 , input_t2_2 + 0.5 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= t2_0 , t2_0 + 1 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= t2_1 , t2_1 + 1 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= t2_2 , t2_2 + 1 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= actuation_0 , actuation_0 + 1 <= input_t1_1)
+Or(input_t1_1 + 0.25 <= actuation_1 , actuation_1 + 1 <= input_t1_1)
+Or(t1_0 + 0.25 <= input_t1_0 , input_t1_0 + 0.25 <= t1_0)
+Or(t1_0 + 0.25 <= input_t1_1 , input_t1_1 + 0.25 <= t1_0)
+Or(t1_0 + 0.25 <= t1_1 , t1_1 + 0.25 <= t1_0)
+Or(t1_0 + 0.25 <= input_t2_0 , input_t2_0 + 0.5 <= t1_0)
+Or(t1_0 + 0.25 <= input_t2_1 , input_t2_1 + 0.5 <= t1_0)
+Or(t1_0 + 0.25 <= input_t2_2 , input_t2_2 + 0.5 <= t1_0)
+Or(t1_0 + 0.25 <= t2_0 , t2_0 + 1 <= t1_0)
+Or(t1_0 + 0.25 <= t2_1 , t2_1 + 1 <= t1_0)
+Or(t1_0 + 0.25 <= t2_2 , t2_2 + 1 <= t1_0)
+Or(t1_0 + 0.25 <= actuation_0 , actuation_0 + 1 <= t1_0)
+Or(t1_0 + 0.25 <= actuation_1 , actuation_1 + 1 <= t1_0)
+Or(t1_1 + 0.25 <= input_t1_0 , input_t1_0 + 0.25 <= t1_1)
+Or(t1_1 + 0.25 <= input_t1_1 , input_t1_1 + 0.25 <= t1_1)
+Or(t1_1 + 0.25 <= t1_0 , t1_0 + 0.25 <= t1_1)
+Or(t1_1 + 0.25 <= input_t2_0 , input_t2_0 + 0.5 <= t1_1)
+Or(t1_1 + 0.25 <= input_t2_1 , input_t2_1 + 0.5 <= t1_1)
+Or(t1_1 + 0.25 <= input_t2_2 , input_t2_2 + 0.5 <= t1_1)
+Or(t1_1 + 0.25 <= t2_0 , t2_0 + 1 <= t1_1)
+Or(t1_1 + 0.25 <= t2_1 , t2_1 + 1 <= t1_1)
+Or(t1_1 + 0.25 <= t2_2 , t2_2 + 1 <= t1_1)
+Or(t1_1 + 0.25 <= actuation_0 , actuation_0 + 1 <= t1_1)
+Or(t1_1 + 0.25 <= actuation_1 , actuation_1 + 1 <= t1_1)
+Or(input_t2_0 + 0.5 <= input_t1_0 , input_t1_0 + 0.25 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= input_t1_1 , input_t1_1 + 0.25 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= t1_0 , t1_0 + 0.25 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= t1_1 , t1_1 + 0.25 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= input_t2_1 , input_t2_1 + 0.5 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= input_t2_2 , input_t2_2 + 0.5 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= t2_0 , t2_0 + 1 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= t2_1 , t2_1 + 1 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= t2_2 , t2_2 + 1 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= actuation_0 , actuation_0 + 1 <= input_t2_0)
+Or(input_t2_0 + 0.5 <= actuation_1 , actuation_1 + 1 <= input_t2_0)
+Or(input_t2_1 + 0.5 <= input_t1_0 , input_t1_0 + 0.25 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= input_t1_1 , input_t1_1 + 0.25 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= t1_0 , t1_0 + 0.25 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= t1_1 , t1_1 + 0.25 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= input_t2_0 , input_t2_0 + 0.5 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= input_t2_2 , input_t2_2 + 0.5 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= t2_0 , t2_0 + 1 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= t2_1 , t2_1 + 1 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= t2_2 , t2_2 + 1 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= actuation_0 , actuation_0 + 1 <= input_t2_1)
+Or(input_t2_1 + 0.5 <= actuation_1 , actuation_1 + 1 <= input_t2_1)
+Or(input_t2_2 + 0.5 <= input_t1_0 , input_t1_0 + 0.25 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= input_t1_1 , input_t1_1 + 0.25 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= t1_0 , t1_0 + 0.25 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= t1_1 , t1_1 + 0.25 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= input_t2_0 , input_t2_0 + 0.5 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= input_t2_1 , input_t2_1 + 0.5 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= t2_0 , t2_0 + 1 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= t2_1 , t2_1 + 1 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= t2_2 , t2_2 + 1 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= actuation_0 , actuation_0 + 1 <= input_t2_2)
+Or(input_t2_2 + 0.5 <= actuation_1 , actuation_1 + 1 <= input_t2_2)
+Or(t2_0 + 1 <= input_t1_0 , input_t1_0 + 0.25 <= t2_0)
+Or(t2_0 + 1 <= input_t1_1 , input_t1_1 + 0.25 <= t2_0)
+Or(t2_0 + 1 <= t1_0 , t1_0 + 0.25 <= t2_0)
+Or(t2_0 + 1 <= t1_1 , t1_1 + 0.25 <= t2_0)
+Or(t2_0 + 1 <= input_t2_0 , input_t2_0 + 0.5 <= t2_0)
+Or(t2_0 + 1 <= input_t2_1 , input_t2_1 + 0.5 <= t2_0)
+Or(t2_0 + 1 <= input_t2_2 , input_t2_2 + 0.5 <= t2_0)
+Or(t2_0 + 1 <= t2_1 , t2_1 + 1 <= t2_0)
+Or(t2_0 + 1 <= t2_2 , t2_2 + 1 <= t2_0)
+Or(t2_0 + 1 <= actuation_0 , actuation_0 + 1 <= t2_0)
+Or(t2_0 + 1 <= actuation_1 , actuation_1 + 1 <= t2_0)
+Or(t2_1 + 1 <= input_t1_0 , input_t1_0 + 0.25 <= t2_1)
+Or(t2_1 + 1 <= input_t1_1 , input_t1_1 + 0.25 <= t2_1)
+Or(t2_1 + 1 <= t1_0 , t1_0 + 0.25 <= t2_1)
+Or(t2_1 + 1 <= t1_1 , t1_1 + 0.25 <= t2_1)
+Or(t2_1 + 1 <= input_t2_0 , input_t2_0 + 0.5 <= t2_1)
+Or(t2_1 + 1 <= input_t2_1 , input_t2_1 + 0.5 <= t2_1)
+Or(t2_1 + 1 <= input_t2_2 , input_t2_2 + 0.5 <= t2_1)
+Or(t2_1 + 1 <= t2_0 , t2_0 + 1 <= t2_1)
+Or(t2_1 + 1 <= t2_2 , t2_2 + 1 <= t2_1)
+Or(t2_1 + 1 <= actuation_0 , actuation_0 + 1 <= t2_1)
+Or(t2_1 + 1 <= actuation_1 , actuation_1 + 1 <= t2_1)
+Or(t2_2 + 1 <= input_t1_0 , input_t1_0 + 0.25 <= t2_2)
+Or(t2_2 + 1 <= input_t1_1 , input_t1_1 + 0.25 <= t2_2)
+Or(t2_2 + 1 <= t1_0 , t1_0 + 0.25 <= t2_2)
+Or(t2_2 + 1 <= t1_1 , t1_1 + 0.25 <= t2_2)
+Or(t2_2 + 1 <= input_t2_0 , input_t2_0 + 0.5 <= t2_2)
+Or(t2_2 + 1 <= input_t2_1 , input_t2_1 + 0.5 <= t2_2)
+Or(t2_2 + 1 <= input_t2_2 , input_t2_2 + 0.5 <= t2_2)
+Or(t2_2 + 1 <= t2_0 , t2_0 + 1 <= t2_2)
+Or(t2_2 + 1 <= t2_1 , t2_1 + 1 <= t2_2)
+Or(t2_2 + 1 <= actuation_0 , actuation_0 + 1 <= t2_2)
+Or(t2_2 + 1 <= actuation_1 , actuation_1 + 1 <= t2_2)
+Or(actuation_0 + 1 <= input_t1_0 , input_t1_0 + 0.25 <= actuation_0)
+Or(actuation_0 + 1 <= input_t1_1 , input_t1_1 + 0.25 <= actuation_0)
+Or(actuation_0 + 1 <= t1_0 , t1_0 + 0.25 <= actuation_0)
+Or(actuation_0 + 1 <= t1_1 , t1_1 + 0.25 <= actuation_0)
+Or(actuation_0 + 1 <= input_t2_0 , input_t2_0 + 0.5 <= actuation_0)
+Or(actuation_0 + 1 <= input_t2_1 , input_t2_1 + 0.5 <= actuation_0)
+Or(actuation_0 + 1 <= input_t2_2 , input_t2_2 + 0.5 <= actuation_0)
+Or(actuation_0 + 1 <= t2_0 , t2_0 + 1 <= actuation_0)
+Or(actuation_0 + 1 <= t2_1 , t2_1 + 1 <= actuation_0)
+Or(actuation_0 + 1 <= t2_2 , t2_2 + 1 <= actuation_0)
+Or(actuation_0 + 1 <= actuation_1 , actuation_1 + 1 <= actuation_0)
+Or(actuation_1 + 1 <= input_t1_0 , input_t1_0 + 0.25 <= actuation_1)
+Or(actuation_1 + 1 <= input_t1_1 , input_t1_1 + 0.25 <= actuation_1)
+Or(actuation_1 + 1 <= t1_0 , t1_0 + 0.25 <= actuation_1)
+Or(actuation_1 + 1 <= t1_1 , t1_1 + 0.25 <= actuation_1)
+Or(actuation_1 + 1 <= input_t2_0 , input_t2_0 + 0.5 <= actuation_1)
+Or(actuation_1 + 1 <= input_t2_1 , input_t2_1 + 0.5 <= actuation_1)
+Or(actuation_1 + 1 <= input_t2_2 , input_t2_2 + 0.5 <= actuation_1)
+Or(actuation_1 + 1 <= t2_0 , t2_0 + 1 <= actuation_1)
+Or(actuation_1 + 1 <= t2_1 , t2_1 + 1 <= actuation_1)
+Or(actuation_1 + 1 <= t2_2 , t2_2 + 1 <= actuation_1)
+Or(actuation_1 + 1 <= actuation_0 , actuation_0 + 1 <= actuation_1)
+
+input_t1_0 >= 0
+input_t1_0 <= 12
+input_t1_1 >= 0
+input_t1_1 <= 12
+t1_0 >= 0
+t1_0 <= 12
+t1_1 >= 0
+t1_1 <= 12
+input_t2_0 >= 0
+input_t2_0 <= 12
+input_t2_1 >= 0
+input_t2_1 <= 12
+input_t2_2 >= 0
+input_t2_2 <= 12
+t2_0 >= 0
+t2_0 <= 12
+t2_1 >= 0
+t2_1 <= 12
+t2_2 >= 0
+t2_2 <= 12
+actuation_0 >= 0
+actuation_0 <= 12
+actuation_1 >= 0
+actuation_1 <= 12

@@ -1,0 +1,44 @@
+node acc(blocked : bool; leftOut : bool; rightOut : bool; centreOut : bool;
+          rightBlock : int)
+returns (wheelLeft : int; wheelRight : int)
+var v : bool; v_1 : bool; v_2 : bool; v_3 : bool; v_4 : bool; v_5 : bool;
+    v_6 : bool; v_7 : bool; v_8 : bool; v_9 : bool; v_10 : bool; v_11 : int;
+    v_12 : int; v_13 : int; v_14 : int; v_15 : bool; v_16 : bool;
+    v_17 : bool; v_18 : bool; v_19 : bool; v_20 : bool; v_21 : bool;
+    v_22 : bool; v_23 : bool; v_24 : bool; v_25 : bool; v_26 : int;
+    v_27 : int; v_28 : int; v_29 : int;
+let
+  wheelRight = if v_17 then 0 else v_29;
+  v_29 = if v_18 then 3 else v_28;
+  v_28 = if v_23 then 0 else v_27;
+  v_27 = if v_24 then 2 else v_26;
+  v_26 = if v_25 then 1 else 0;
+  v_25 = (leftOut = true);
+  v_24 = (rightOut = true);
+  v_23 = (v_21 & v_22);
+  v_22 = (rightOut = true);
+  v_21 = (v_19 & v_20);
+  v_20 = (leftOut = true);
+  v_19 = (centreOut = true);
+  v_18 = (centreOut = false);
+  v_17 = (v_15 or v_16);
+  v_16 = (rightBlock = 0);
+  v_15 = (blocked = true);
+  wheelLeft = if v_2 then 0 else v_14;
+  v_14 = if v_3 then 3 else v_13;
+  v_13 = if v_8 then 0 else v_12;
+  v_12 = if v_9 then 1 else v_11;
+  v_11 = if v_10 then 2 else 0;
+  v_10 = (leftOut = true);
+  v_9 = (rightOut = true);
+  v_8 = (v_6 & v_7);
+  v_7 = (rightOut = true);
+  v_6 = (v_4 & v_5);
+  v_5 = (leftOut = true);
+  v_4 = (centreOut = true);
+  v_3 = (centreOut = false);
+  v_2 = (v or v_1);
+  v_1 = (rightBlock = 0);
+  v = (blocked = true)
+tel
+

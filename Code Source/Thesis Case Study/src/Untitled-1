@@ -1,0 +1,57 @@
+{
+    "sensor" : [
+        {"name" : "FrontBlocked" , "type" : "float"},
+        {"name" : "leftOut" , "type" : "float"},
+        {"name" : "rightOut" , "type" : "float"},
+        {"name" : "centreOut" , "type" : "float"},
+        {"name" : "frontRightIR" , "type" : "float"},
+        {"name" : "backRightIR" , "type" : "float"}
+    ],
+
+    "actuator" : [
+        {"name" : "wheel" , "type" : "float" , "init" : "0"},
+        {"name" : "buzzer" , "type" : "float" , "init" : "0"}
+    ],
+    
+    "input" : [
+            {"name" : "FrontBlockedi" , "type" : "float"},
+            {"name" : "leftOuti" , "type" : "float"},
+            {"name" : "rightOuti" , "type" : "float"},
+            {"name" : "centreOuti" , "type" : "float"},
+            {"name" : "frontRightIRi" , "type" : "float"},
+            {"name" : "backRightIRi" , "type" : "float"},
+            {"name" : "rightBlockedi" , "type" : "float"}
+    ],
+
+    "output" : [
+        {"name" : "leftWheel", "type" : "float" , "init": "0"},
+        {"name" : "rightWheel", "type" : "float" , "init": "0"},
+        {"name" : "rightBlocked", "type" : "float" , "init": "0"}
+    ],
+
+    "private" : [
+    ],
+
+    "task" : [
+        {"name" : "t1", "input" : ["FrontBlockedi","leftOuti","rightOuti","centreOuti","rightBlockedi"] , "output": ["leftWheel","rightWheel"], "function":"Cor__acc_step", "wcet":"2" },
+        {"name" : "t2", "input" : ["frontRightIRi","backRightIRi"] , "output": ["rightBlocked"], "function":"RightO__rightO_step", "wcet":"1" }
+    ],
+
+    "driver" : [
+        {"name" : "input_t1", "input" : ["FrontBlocked","leftOut","rightOut","centreOut","rightBlocked"] , "output": ["FrontBlockedi","leftOuti","rightOuti","centreOuti","rightBlockedi"], "function":"inputDriver",  "wcet":"1" },
+        {"name" : "input_t2", "input" : ["frontRightIR","backRightIR"] , "output": ["frontRightIRi","backRightIRi"], "function":"inputDriver2", "wcet":"0.5" },
+        {"name" : "actuation", "input" : ["leftWheel","rightWheel"] , "output": ["wheel"], "function":"actDriver" , "wcet":"1" },
+        {"name" : "actuation2", "input" : ["rightBlocked"] , "output": ["buzzer"], "function":"actDriver2", "wcet":"0.5" }
+
+    ],
+
+    "mode" : [
+        {"name" : "m1", "period" : "16" ,  "definition":[
+            {"type": "sensor", "frequency": "1", "task": "t1", "driver": "input_t1"},
+            {"type": "actuator", "frequency": "1", "driver": "actuation"},
+            {"type": "sensor", "frequency": "2", "task": "t2", "driver": "input_t2"},
+            {"type": "actuator", "frequency": "2", "driver": "actuation2"}
+        ]}
+        ],
+    "jitter" : "2"
+}

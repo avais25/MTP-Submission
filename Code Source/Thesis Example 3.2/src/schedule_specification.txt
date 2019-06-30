@@ -1,0 +1,13 @@
+sat
+[input_t2_2 = 8,
+ input_t2_1 = 4,
+ actuation_1 = 11,
+ input_t2_0 = 1/2,
+ t1_0 = 1/4,
+ t2_0 = 1,
+ actuation_0 = 5,
+ t1_1 = 6,
+ t2_1 = 25/4,
+ input_t1_0 = 0,
+ t2_2 = 17/2,
+ input_t1_1 = 2]

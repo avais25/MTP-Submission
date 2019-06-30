@@ -1,0 +1,15 @@
+node acc(blocked,leftOut,rightOut,centreOut : bool; rightBlock : int) returns (wheelLeft,wheelRight : int);
+let
+      wheelLeft= if blocked=true or rightBlock=0 then 0
+                else if(centreOut = false) then 3
+                else if(centreOut = true and leftOut =true and rightOut=true) then 0
+                else if rightOut=true then 1
+                else if leftOut=true then 2 else 0;
+
+      wheelRight= if blocked=true or rightBlock=0 then 0
+                else if(centreOut = false) then 3
+                else if(centreOut = true and leftOut =true and rightOut=true) then 0
+                else if rightOut=true then 2
+                else if leftOut=true then 1 else 0;
+
+tel

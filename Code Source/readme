@@ -1,0 +1,9 @@
+Run :- 
+bash master.sh
+
+Debug:-
+Comment the line 
+schedule =0 ;
+under case 0: of main.c
+
+I have used PlatformIO extension of VSCode to generate .hex file

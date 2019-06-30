@@ -1,0 +1,57 @@
+{
+    "sensor" : [
+        {"name" : "bl" , "type" : "float"},
+        {"name" : "le" , "type" : "float"},
+        {"name" : "ri" , "type" : "float"},
+        {"name" : "cn" , "type" : "float"},
+        {"name" : "rf" , "type" : "float"},
+        {"name" : "rb" , "type" : "float"}
+    ],
+
+    "actuator" : [
+        {"name" : "wheel" , "type" : "float" , "init" : "0"},
+        {"name" : "buzzer" , "type" : "float" , "init" : "0"}
+    ],
+    
+    "input" : [
+            {"name" : "bli" , "type" : "float"},
+            {"name" : "lei" , "type" : "float"},
+            {"name" : "rii" , "type" : "float"},
+            {"name" : "cni" , "type" : "float"},
+            {"name" : "rfi" , "type" : "float"},
+            {"name" : "rbi" , "type" : "float"},
+            {"name" : "rBlki" , "type" : "float"}
+    ],
+
+    "output" : [
+        {"name" : "lw", "type" : "float" , "init": "0"},
+        {"name" : "rw", "type" : "float" , "init": "0"},
+        {"name" : "rBlk", "type" : "float" , "init": "0"}
+    ],
+
+    "private" : [
+    ],
+
+    "task" : [
+        {"name" : "t1", "input" : ["bli","lei","rii","cni","rBlki"] , "output": ["lw","rw"], "function":"Cor__acc_step", "wcet":"2" },
+        {"name" : "t2", "input" : ["rfi","rbi"] , "output": ["rBlk"], "function":"RightO__rightO_step", "wcet":"1" }
+    ],
+
+    "driver" : [
+        {"name" : "input_t1", "input" : ["bl","le","ri","cn","rBlk"] , "output": ["bli","lei","rii","cni","rBlki"], "function":"inputDriver",  "wcet":"1" },
+        {"name" : "input_t2", "input" : ["rf","rb"] , "output": ["rfi","rbi"], "function":"inputDriver2", "wcet":"0.5" },
+        {"name" : "actuation", "input" : ["lw","rw"] , "output": ["wheel"], "function":"actDriver" , "wcet":"1" },
+        {"name" : "actuation2", "input" : ["rBlk"] , "output": ["buzzer"], "function":"actDriver2", "wcet":"0.5" }
+
+    ],
+
+    "mode" : [
+        {"name" : "m1", "period" : "16" ,  "definition":[
+            {"type": "sensor", "frequency": "1", "task": "t1", "driver": "input_t1"},
+            {"type": "actuator", "frequency": "1", "driver": "actuation"},
+            {"type": "sensor", "frequency": "2", "task": "t2", "driver": "input_t2"},
+            {"type": "actuator", "frequency": "2", "driver": "actuation2"}
+        ]}
+        ],
+    "jitter" : "2"
+}
